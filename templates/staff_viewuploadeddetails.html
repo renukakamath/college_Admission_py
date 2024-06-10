@@ -1,0 +1,93 @@
+{% include 'staff_header.html'%}
+
+
+<style type="text/css">
+    
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+    color: white
+}
+
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+</style>
+
+ <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex justify-content-center align-items-center" style="height: 500px">
+    <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
+<br><br><br><br><br><br>
+<center>
+    <h1 style="color: white">view Uploaded Details</h1>
+    <form>
+            <table class="styled-table">
+    <thead>
+            <tr>
+                <th>SLno</th>
+                <th>Title</th>
+                <th>File</th>
+                <th>Date</th>
+                
+             
+                
+                
+                
+            </tr>
+        </thead>
+            {% for row in data['seee']%}
+             <tbody>
+        <tr>
+            <td>{{loop.index}}</td>
+
+           
+          
+            <td>{{row['title']}}</td>
+              <td><img src="/{{row['files']}}" width="100" height="100"></td>
+                <td>{{row['date']}}</td>
+      
+      
+            
+        </tr>
+        {% endfor %}
+
+    </tbody>
+   
+        </table>
+    </form>
+</center>
+</div></section>
+{% include 'footer.html'%}
